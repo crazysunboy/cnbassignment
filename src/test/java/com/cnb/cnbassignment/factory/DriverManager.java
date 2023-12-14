@@ -9,7 +9,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverManager {
 	public WebDriver initializeDriver(String url) {
-		WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().clearDriverCache().setup();
+		WebDriverManager.chromedriver().clearResolutionCache().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
